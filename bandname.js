@@ -25,8 +25,8 @@ var array_member = function(arr) {
 module.exports = function(noun_type, adjective_type) {
   if (!noun_type) noun_type = DEFAULT_NOUN;
   if (!adjective_type) adjective_type = DEFAULT_ADJECTIVE;
-  var nouns = require('./nouns/' + noun_type + '.json');
-  var adjectives = require('./adjectives/' + adjective_type + '.json');
+  var nouns = require('./nouns/' + noun_type);
+  var adjectives = require('./adjectives/' + adjective_type);
 
   return (array_member(adjectives)) + " " + (array_member(nouns));
 };
