@@ -1,15 +1,21 @@
-var adjectives = require('./adjectives.json');
+var path = require('path');
+var fs = require('fs');
+
+var adjectives = require('./adjectives/adjectives.json');
+
+const DEFAULT_NOUN = 'animals';
+
+var noun_types = fs.readdirSync('./nouns').map(function(filename) {
+  return path.parse(filename).name;
+});
 
 var array_member = function(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 };
 
-module.exports = function(genre) {
-  var names = ['animals', 'asoiaf', 'lotr'];
+module.exports = function(noun_type) {
+  if (!noun_type) noun_type = DEFAULT_NOUN;
+  var nouns = require('./nouns/' + noun_type + '.json');
 
-  //where be muh es6?
-  (genre && names.some(function(elem) {if (elem == genre); return elem})) ? genre = genre : genre = 'animals';
-  var noun = require('./' + genre + '.json');
-
-  return (array_member(adjectives)) + " " + (array_member(noun));
+  return (array_member(adjectives)) + " " + (array_member(nouns));
 };
