@@ -1,4 +1,5 @@
-var bandname = require('./bandname');
+var path = require('path');
+var bandname = require(path.resolve('.', 'bandname'));
 var assert = require('assert');
 
 var name = bandname();
