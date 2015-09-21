@@ -8,8 +8,15 @@ var just_the_name = function(filename) {
   return path.parse(filename).name;
 };
 
-var adjective_types = fs.readdirSync('./adjectives').map(just_the_name);
-var noun_types = fs.readdirSync('./nouns').map(just_the_name);
+var cache_warmer_factory = function(subfolder) {
+  return function(filename) {
+    require('./' + subfolder + '/' + filename);
+    return filename;
+  }
+};
+
+var adjective_types = fs.readdirSync('./adjectives').map(cache_warmer_factory('adjectives')).map(just_the_name);
+var noun_types = fs.readdirSync('./nouns').map(cache_warmer_factory('nouns')).map(just_the_name);
 
 var array_member = function(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
