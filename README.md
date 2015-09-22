@@ -12,6 +12,11 @@
 var bandname = require('bandname');
 console.log(bandname());
 ```
+_alternatively; for added flavour:_
+```javascript
+console.log(bandname('lotr'));
+console.log(bandname('asoiaf'));
+```
 
 ### Sample output
 
@@ -36,4 +41,8 @@ Sleepy Ibis
 Silky Falcon
 Stupendous Bison
 Uneven Caterpillar
+Uppity Eldalondë
+Thundering Mud Gate
+Swanky Maidenpool
+Well-groomed Sunspear
 ```
