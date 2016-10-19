@@ -1,6 +1,6 @@
 ## Bandname
 
-> There are only two hard problems in computer science. Cache invalidation and naming things.
+> There are only two hard problems in computer science. Cache invalidation, naming things, and off-by-one errors.
 
 #### This library completely solves one of those problems!
 
